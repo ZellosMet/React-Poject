@@ -6,6 +6,7 @@ import Modal from "../Modal/Modal";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Products", path: "/cards" },
+  { name: "Privacy", path: "/privacy" },
 ];
 
 /**
