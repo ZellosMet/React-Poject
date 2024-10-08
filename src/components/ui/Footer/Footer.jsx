@@ -247,9 +247,6 @@ const Footer = () => {
                 Terms
               </a>
               <a href="#" className="text-sm text-gray-500">
-                Privacy
-              </a>
-              <a href="#" className="text-sm text-gray-500">
                 Cookies
               </a>
             </nav>
