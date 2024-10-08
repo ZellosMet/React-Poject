@@ -1,0 +1,83 @@
+.card
+{    
+    position: relative;
+    width: 300px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 0.75rem;
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    align-content: space-between;
+}
+
+img 
+{
+    width: 100%;
+    max-height: 250px;
+    border-top-left-radius : 0.75rem;
+    border-top-right-radius : 0.75rem;
+}
+
+.featured
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(28, 169, 145);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 3px;
+    margin: 5px;
+}
+
+.featured_isCheck
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(188, 34, 165);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 3px;
+    margin: 5px;
+}
+
+.p_20
+{
+    padding: 20px;
+}
+
+.pt_20
+{
+    padding-top: 20px;
+}
+
+.flex
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.text_font_24
+{
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.color_text_gray
+{
+    color: gray;
+}
+
+.button
+{
+    border-radius: 0.5rem;
+    border-color: rgba(51, 7, 94, 0.39) ;
+    background-color: rgb(96, 59, 152);
+    color: white;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 16px;
+    line-height: 32px;
+}
