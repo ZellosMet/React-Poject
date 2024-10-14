@@ -5,13 +5,15 @@ import Home from "../pages/Home";
 import Cards from "../pages/Cards";
 import CardDetails from "../pages/CardDetails";
 import Privacy from "../pages/Privacy";
+import Cart from "../pages/Cart";
 
 /**Роуты приложения */
 const routes = [
   { path: "/", element: <Home /> },
   { path: "cards", element: <Cards /> },
   { path: "cards/:alias", element: <CardDetails /> },
-  { path: "privacy", element: <Privacy /> }
+  { path: "privacy", element: <Privacy /> },
+  { path: "cart", element: <Cart /> }
 ];
 
 /**
