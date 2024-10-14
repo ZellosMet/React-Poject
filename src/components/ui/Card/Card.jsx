@@ -12,7 +12,6 @@ import styles from"./Card.module.css";
 * @param {string} props.imgSrc - Путь к изображению
 * @return {JSX.Element} - Элемент JSX
 */
-
 const Card = (props) => {const { name, category, description, price, rating, imgSrc, isFavorite } = props.details;
 const { onCardClick } = props;
     return (
@@ -28,7 +27,7 @@ const { onCardClick } = props;
             </div>
             <div className={`${styles.flex} ${styles.pt_20}` }>
                 {price && <span className={styles.text_font_24}><b>${price}</b></span>}
-                <button  className={styles.button} type ="button"> Buy now </button>            
+                <button className={styles.button} type ="button"> Details </button>            
             </div>          
         </div>
     </div>
