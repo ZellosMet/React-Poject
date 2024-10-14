@@ -12,7 +12,9 @@ const useProducts = create((set, get) => {
     {
         let updatedCart = get().cart;
         //Получаем элемент массива если он уже есть в массиве корзины 
-        const findProduct = get().cart.find(cartProduct => cartProduct.cartQuantity == product.cartQuantity)
+        const findProduct = updatedCart.find(find => find.id === product.id)
+        console.log("find ",findProduct);
+        console.log("update ",updatedCart);
         if(findProduct)
         {
             //Если есть, то удаляем найденный элемен из массива корзины и записываем этот элемент с увеличенным количеством
