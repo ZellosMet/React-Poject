@@ -12,11 +12,11 @@ const useProducts = create((set, get) => {
     {
         let updatedCart = get().cart;
         //Получаем индекс элемента массива если он уже есть в массиве корзины 
-        const findProduct = updatedCart.findIndex(find => find.id === product.id)
-        if(findProduct>-1)
+        const index = updatedCart.findIndex(find => find.id === product.id)
+        if(index != -1)
         {
             //Если есть, то увеличиваем значение количества товара
-            updatedCart[findProduct].cartQuantity++;
+            updatedCart[index].cartQuantity++;
         }
         else
         {
@@ -62,8 +62,8 @@ const useProducts = create((set, get) => {
     const incrementQuantity = (productId) =>
     {
       let updatedCart = get().cart;
-      const findProduct = updatedCart.findIndex(find => find.id === productId)
-      updatedCart[findProduct].cartQuantity++;
+      const index = updatedCart.findIndex(find => find.id === productId)
+      updatedCart[index].cartQuantity++;
       localStorage?.setItem("cart", JSON?.stringify( updatedCart));
       set({ cart: updatedCart });
     }
@@ -76,8 +76,8 @@ const useProducts = create((set, get) => {
     const decrementQuantity = (productId) =>
     {
       let updatedCart = get().cart;
-      const findProduct = updatedCart.findIndex(find => find.id === productId)
-      updatedCart[findProduct].cartQuantity--;
+      const index = updatedCart.findIndex(find => find.id === productId)
+      updatedCart[index].cartQuantity--;
       localStorage?.setItem("cart", JSON?.stringify( updatedCart));
       set({ cart: updatedCart });
     }
