@@ -3,6 +3,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { Link } from "react-router-dom";
 import useDisclosure from "../components/hooks/useDisclosure";
 import Alert from "../components/ui/Alert/Alert";
+import Stepper from "../components/ui/Stepper/Stepper";
 
 const Cart = () => {
   // Показ/скрытие компонента Alert
@@ -19,8 +20,6 @@ const Cart = () => {
     // Уведомляем пользователя
     alertData?.onOpen();
   };
-
-  console.log("товары в корзине", cart);
 
   return (
     <section className="cart min-h-80">
@@ -64,9 +63,13 @@ const Cart = () => {
                     <span className="text-lg font-bold mb-4">
                       {item?.price}$
                     </span>
-                    <span className="text-lg mb-4">
-                    Quantity: {item?.cartQuantity}
-                    </span>
+                    {/* Степпер для увеличения/уменьшения количества товара*/}
+                    <Stepper
+                      step={1}
+                      id={item?.id}
+                      quantityValue={item?.cartQuantity}
+                    />
+
                   </div>
                 </div>
               </div>

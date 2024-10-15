@@ -24,8 +24,8 @@ const Header = () => {
   // Хук для направления пользователя в корзину товаров
   const navigate = useNavigate();
 
-  // Получаем данные из хранилища
-  const { cart } = useProducts();
+  // Получаем количество всего товара из хранилища
+  const { getTotalQuantity } = useProducts();
 
   /**
    * Определяет, активна ли ссылка.
@@ -94,7 +94,7 @@ const Header = () => {
 
                 {/*Отображение количества товаров в корзине*/}                 
                 <span className="w-5 h-5 text-xs px-1 leading-5 text-white inline-flex items-center justify-center bg-indigo-500 rounded-full absolute top-[-4px] right-[-4px]">
-                  {cart.length}
+                  {getTotalQuantity()}
                 </span> 
 
             </button>
