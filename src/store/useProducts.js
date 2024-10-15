@@ -11,23 +11,19 @@ const useProducts = create((set, get) => {
   const addToCart = (product) => 
     {
         let updatedCart = get().cart;
-        //Получаем элемент массива если он уже есть в массиве корзины 
-        const findProduct = updatedCart.find(find => find.id === product.id)
-        console.log("find ",findProduct);
-        console.log("update ",updatedCart);
-        if(findProduct)
+        //Получаем индекс элемента массива если он уже есть в массиве корзины 
+        const findProduct = updatedCart.findIndex(find => find.id === product.id)
+        if(findProduct>-1)
         {
-            //Если есть, то удаляем найденный элемен из массива корзины и записываем этот элемент с увеличенным количеством
-            updatedCart = updatedCart.filter(product => product?.id !== findProduct.id);
-            findProduct.cartQuantity++;
-            updatedCart = [...updatedCart, findProduct]
+            //Если есть, то увеличиваем значение количества товара
+            updatedCart[findProduct].cartQuantity++;
         }
         else
         {
             //Если нет, то записываем переданный элемент в массив корзины
             updatedCart = [...updatedCart, product];
         }
-        //const updatedCart = [...get().cart, { ...product, cartQuantity: 1 }];        
+        //const updatedCart = [...get().cart, { ...product, cartQuantity: 1 }];      
         localStorage?.setItem("cart", JSON?.stringify(updatedCart));
         set({ cart: updatedCart });
         console.log("Cart after set:", get().cart);
@@ -45,9 +41,45 @@ const useProducts = create((set, get) => {
         set({ cart: updatedCart });
     };
 
-    const cartCount = () =>
+  /**
+   * Функция подсчёта всего товара в корзине
+   * @returns {number} - количество всего товара в корзине
+   */
+    const getTotalQuantity = () =>
     {
-        get().cart.length;
+        const totalQuantity = get().cart.reduce( function (sum, productQuantity)
+        {
+          return sum += productQuantity.cartQuantity;
+        },0)
+        return totalQuantity
+    }
+
+  /**
+   * Функция увеличения количества определённого товара в корзине
+   * @param {string} productId - id товара.
+   * @returns {void}
+   */
+    const incrementQuantity = (productId) =>
+    {
+      let updatedCart = get().cart;
+      const findProduct = updatedCart.findIndex(find => find.id === productId)
+      updatedCart[findProduct].cartQuantity++;
+      localStorage?.setItem("cart", JSON?.stringify( updatedCart));
+      set({ cart: updatedCart });
+    }
+
+  /**
+   * Функция уменьшения количества определённого товара в корзине
+   * @param {string} productId - id товара.
+   * @returns {void}
+   */
+    const decrementQuantity = (productId) =>
+    {
+      let updatedCart = get().cart;
+      const findProduct = updatedCart.findIndex(find => find.id === productId)
+      updatedCart[findProduct].cartQuantity--;
+      localStorage?.setItem("cart", JSON?.stringify( updatedCart));
+      set({ cart: updatedCart });
     }
 
   return {
@@ -55,7 +87,9 @@ const useProducts = create((set, get) => {
     cart: storedCart,
     addToCart,
     deleteFromCart,
-    cartCount
+    getTotalQuantity,
+    incrementQuantity,
+    decrementQuantity
   };
 });
 
