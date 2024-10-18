@@ -6,6 +6,7 @@ import Cards from "../pages/Cards";
 import CardDetails from "../pages/CardDetails";
 import Privacy from "../pages/Privacy";
 import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
 
 /**Роуты приложения */
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
   { path: "cards", element: <Cards /> },
   { path: "cards/:alias", element: <CardDetails /> },
   { path: "privacy", element: <Privacy /> },
-  { path: "cart", element: <Cart /> }
+  { path: "cart", element: <Cart /> },
+  { path: "/cart/checkout", element: <Checkout />}
 ];
 
 /**

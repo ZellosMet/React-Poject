@@ -25,7 +25,6 @@ export function useForm(initialValues) {
 
     // Обновляем состояние формы для текущего поля
     setFormValues({ ...formValues, [name]: value });
-
     // Находим ближайшую форму
     const form = event?.target?.closest("form");
 
